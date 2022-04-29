@@ -3,7 +3,8 @@ import Breadcrum from '../comps/Breadcrum'
 import Login from '../comps/Login'
 import Signup from '../comps/Signup'
 
-function LoginSignup() {
+function LoginSignup({setty}) {
+
   return (
     <>
     <Breadcrum name={"Login / Register"}/>
@@ -11,9 +12,8 @@ function LoginSignup() {
     <section class="login-section">
             <div class="container">
                 <div class="row">
-                    
-                    <Login/>
-                    <Signup/>
+                    <Login setty={setty}/>  
+                    <Signup setty={setty}/>
                  
                 </div>
             </div>

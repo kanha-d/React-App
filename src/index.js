@@ -15,66 +15,15 @@ import './style/responsive.css';
 import './style/settings.css';
 import './style/theme.css';
 import './style/themewar-icons.css';
-
-
-import Header from './comps/Header';
-import {BrowserRouter as Router,Routes,Route, Navigate} from 'react-router-dom';
-import Home from './pages/Home';
-import Footer from './comps/Footer';
-import About from './pages/About';
-import Shop from './pages/Shop';
-import Category from './pages/Category';
-import Cart from './pages/Cart';
-import Checkout from './pages/Checkout';
-import LoginSignup from './pages/LoginSignup';
-import WishList from './pages/WishList';
-import Protected from './comps/Protected';
-
-var user = false;
-if(sessionStorage.getItem("user_id") !== null){
-  user = true;
- 
-}
-   
+import {BrowserRouter as Router} from 'react-router-dom';
+import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <>
-    <Router>    
-      <Header session={user}/>
-        <Routes>
-            <Route path="/" element={<Home/>}/>
-            <Route path="/shop" element={<Shop/>}/>
-
-            <Route path="/cat">
-              <Route path="mens" element={<Category name={"mens"}/>} />
-              <Route path="womens" element={<Category name={"womens"}/>} />
-              <Route path="children" element={<Category name={"children"}/>} />
-            </Route>
-
-            <Route  path="/profile"  element={
-                <Protected user={user}>
-                  <Home />
-                </Protected>} 
-            />
-
-            
-         
-            <Route path="/wish-list" element={<WishList/>}/>
-            <Route path="/cart" element={<Cart/>}/>
-            <Route path="/profile" element={<Navigate to="/login"/>}/>
-            <Route path="/login" element={<LoginSignup/>}/>
-           
-
-            <Route path="/checkout" element={<Checkout/>}/>
-        </Routes>
-        <Footer/>
+    <Router>
+      <App/>
     </Router>
-
-    
-
-    </>
   </React.StrictMode>
 );
 

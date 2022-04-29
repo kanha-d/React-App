@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 
-function Login() {
+function Login({setty}) {
 
 const navigate = useNavigate();
 
@@ -22,7 +22,7 @@ const handleSubmit = (e) =>{
     var user = JSON.parse(localStorage.getItem('user_local'));
     if(user.email == userLog.email && user.password == userLog.password){
         sessionStorage.setItem("user_id",user.email);
-      
+        setty();
         navigate('/profile');
     }else{
         alert('Error login!');

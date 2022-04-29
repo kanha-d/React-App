@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {Navigate, useNavigate} from 'react-router-dom'
 
-function Signup() {
+function Signup({setty}) {
 
 const navigate = useNavigate();
 
@@ -30,6 +30,7 @@ const navigate = useNavigate();
        
         localStorage.setItem("user_local",JSON.stringify(newUser));
         sessionStorage.setItem("user_id",newUser.id);
+        setty();
         navigate('/');
        
   }

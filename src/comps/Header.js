@@ -2,15 +2,16 @@ import React from 'react'
 import Logo from '../assets/logo.png';
 import Flag from '../assets/flag.png';
 import Cart from '../assets/cart.png';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import SearchProduct from './SearchProduct';
 
-function Header({session}) {
-const navigate =  useNavigate();
-const handleLogout = () =>{ 
-    sessionStorage.removeItem("user_id");
-   navigate('/login');
-}
+function Header({handleLogout, session}) {
+
+  function handlele () {
+    // handleLogout()
+    sessionStorage.removeItem("user_id")
+    handleLogout()
+  }  
 
   return (
     <>
@@ -55,9 +56,9 @@ const handleLogout = () =>{
 
                             {!session ? <Link className="user-login" to="/login">
                                 <i className="twi-user-circle"></i><span>Login/Signup</span>
-                            </Link> : <a onClick={handleLogout} className="user-login" to="/logout">
+                            </Link> : <Link onClick={handlele} className="user-login" to="/">
                                 <i className="twi-user-circle"></i><span>Logout</span>
-                            </a>}
+                            </Link>}
 
                             
 
